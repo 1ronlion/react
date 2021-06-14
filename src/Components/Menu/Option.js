@@ -1,11 +1,13 @@
 import React,{Component} from "react"
 import {Link} from "react-router-dom"
+import {Nav} from 'react-bootstrap'
+
 
 
     
 function Option(props){
     return(
-        <Link as={Link} to={props.path}>{props.label}</Link>
+        <Nav.Link as={Link} to={props.path}>{props.label}</Nav.Link>
     )
 }
 

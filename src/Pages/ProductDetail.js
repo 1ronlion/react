@@ -22,7 +22,7 @@ function ProductDetail(props) {
    
         return(
         <div>
-            <Product data={producto} verDetalle={false} verDescripcion={true}/>
+            <Product id={producto.id} data={producto} verTarjeta={false} verDetalle={false} verDescripcion={true}/>
         </div>
         
         )

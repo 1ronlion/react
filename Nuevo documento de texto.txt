@@ -1,4 +1,0 @@
-validaciones front end
-renderizar errores en pantalla
-
-componente loading

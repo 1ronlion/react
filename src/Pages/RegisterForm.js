@@ -1,8 +1,12 @@
 import React,{useState} from "react"
 import firebase from "../Config/Firebase"
+import {Button} from 'react-bootstrap'
+import AlertCustom from "../Components/AlertCustom"
+import FormGroup from "../Components/FormGroup"
 
 function RegisterForm(){
     const [form,setForm] = useState({nombre:'',apellido:'',email:'',password:''})
+    const [alert,setAlert] = useState({variant:"",text:""})
     const handleSubmit = (event)=>{
         event.preventDefault()
         console.log(form)
@@ -18,13 +22,17 @@ function RegisterForm(){
             })
             .then(data=>{
                 console.log(data);
+                setAlert({variant:"success",text:"Registro Exitoso!"})
             })
             .catch(error=>{
                 console.log("error add", error)
+                setAlert({variant:"danger",text:"Ha ocurrido un error"})
+                
             })
         })
         .catch(error =>{
             console.log("error", error)
+            setAlert({variant:"danger",text:"Ha ocurrido un error"})
         })
     }
     const handleChange = (event)=>{
@@ -36,25 +44,25 @@ function RegisterForm(){
     
     return(
 
+        
+
+  
         <form onSubmit={handleSubmit}>
-            <div>
-                <label>Nombre</label>
-                <input type="text" name="nombre" value={form.nombre} onChange={handleChange}></input>
-            </div>
-            <div>
-                <label>Apellido</label>
-                <input type="text" name="apellido" value={form.apellido} onChange={handleChange}></input>
-            </div>
-            <div>
-                <label>Email</label>
-                <input type="email" name="email" value={form.email} onChange={handleChange}></input>
-            </div>
-            <div>
-                <label>Contraseña</label>
-                <input type="password" name="password" value={form.password} onChange={handleChange}></input>
-            </div>
-            <button type="submit">Registrarse</button>
+
+            <h1 style={{marginTop:-20, marginBottom:30}}>Formulario de registro</h1>
+
+                <FormGroup label="Nombre" name="nombre" type="text" placeholder="Ingrese su nombre" value={form.nombre} change={handleChange} />
+                <FormGroup label="Apellido" name="apellido" type="text" placeholder="Ingrese su apellido" value={form.apellido} change={handleChange} />
+                <FormGroup label="Email" name="email" type="email" placeholder="Ingrese su email" value={form.email} change={handleChange} />
+                <FormGroup label="Contraseña" name="password" type="password" placeholder="Ingrese su contraseña" value={form.password} change={handleChange} />
+
+            <Button variant="secondary" type="submit" style={{marginTop:12}}>Registrarse</Button>
+
+            <AlertCustom variant={alert.variant} text={alert.text} />
+     
+          
         </form>
+   
 
 
     )

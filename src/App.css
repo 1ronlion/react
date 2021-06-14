@@ -13,6 +13,15 @@
   }
 }
 
+.MainContainer {
+  font-family: 'Montserrat', sans-serif;
+}
+
+.ml-auto {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: bolder;
+}
+
 .App-header {
   background-color: #282c34;
   min-height: 100vh;

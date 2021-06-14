@@ -1,5 +1,7 @@
 import React,{useState,useEffect} from "react"
 import Product from "../Components/Product"
+import {Row, Col} from 'react-bootstrap'
+
 
 
 
@@ -20,12 +22,20 @@ function Home() {
 
         
     return(
-        <div>
-           
 
+      
+
+      
+                <Row>
+    
             {productos.map(product=><Product data={product} />)}
+         
+                </Row>
 
-        </div>
+        
+      
+                
+              
     )
 
         
